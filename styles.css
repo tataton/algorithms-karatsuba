@@ -1,0 +1,39 @@
+body {
+	font-family: Verdana, sans-serif;
+	width: 90%;
+	min-width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: green;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: bold;
+	color: darkgreen;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+button, input {
+		font-size: 16px;
+		display: block;
+		margin-bottom: 10px;
+}
+
+section {
+	border-bottom-style: solid;
+	border-color: black;
+	border-width: thick;
+}

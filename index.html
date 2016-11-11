@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Algorithms Programming Assignment #1: The Karatsuba Multiplication Algorithm</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="big.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>The Karatsuba Multiplication Algorithm</h1>
+    </header>
+    <main>
+      <section id="explanation">
+        <p>The <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba Multiplication Algorithm</a> is a recursive method for multiplying two Integers. The algorithm reduces the total number of computational steps, especially for multiplying large numbers, relative to the standard single-digit multiplication method that we all learn in grade school.</p>
+        <p>This page compares my Karatsuba algorithm output with output from <a href="https://github.com/MikeMcl/big.js/">big.js</a>, a JavaScript library designed for precision arithmetic on large numbers. I can't use direct multiplication in JavaScript to test, because native JavaScript has an upper limit to integers of 2<sup>53</sup>, or 9007199254740991. No JavaScript math can use a number higher than this as an input, or result in a number higher than this as a product, without introducing error. In my code, I deal with this by handling all values other than single digits as arrays of digits. I am actually not sure how big.js deals with it, but I only use big.js to test; it is not used in my Karatsuba method code. I think this type of problem would normally be tested in a language like Python, which has no limit on integer size. But I don't know how to handle web output for any other language yet, so I&#39;m using JavaScript.</p>
+      </section>
+      <section id="input-area">
+        <h2>Numbers to Multiply:</h2>
+        <p>(Initial values provided below are taken from my Stanford Algorithms course assignment; feel free to input your own!)</p>
+        First integer: <input id="inputNum1" type="text" size="90" value="3141592653589793238462643383279502884197169399375105820974944592">
+        Second integer: <input id="inputNum2" type="text" size="90" value="2718281828459045235360287471352662497757247093699959574966967627">
+        <button onclick="karatsuba()">Submit</button>
+        My calculated product:
+        <p id="karatsubaOutput"></p>
+        Product calculated by big.js:
+        <p id="bigJSOutput"></p>
+      </section>
+    </main>
+  </body>
+</html>
