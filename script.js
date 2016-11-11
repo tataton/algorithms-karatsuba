@@ -123,14 +123,14 @@ function recursMultiply(m, n) {
   var a, b, c, d;
   if (splitLength >= m.length) {
     a = [];
-    b = x;
+    b = m;
   } else {
     a = m.slice(0, (m.length - splitLength));
     b = m.slice(m.length - splitLength);
   }
   if (splitLength >= n.length) {
     c = [];
-    d = y;
+    d = n;
   } else {
     c = n.slice(0, (n.length - splitLength));
     d = n.slice(n.length - splitLength);
