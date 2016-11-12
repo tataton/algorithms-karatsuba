@@ -107,26 +107,16 @@ function arraySubtract(g, h) {
       diffArray.unshift(singleDigitDiff + 10);
     }
   }
-//  var solnArray;
   if (borrow == 1) {
     return arraySubtract(g.slice(0, (g.length - h.length)), [1]).concat(diffArray);
-//    solnArray = arraySubtract(g.slice(0, (g.length - h.length)), [1]).concat(diffArray);
   } else {
     return g.slice(0, (g.length - h.length)).concat(diffArray);
-//    solnArray = g.slice(0, (g.length - h.length)).concat(diffArray);
   }
-  /* This process sometimes yields a number with leading zeroes. Have to get
-  rid of those. */
-//  while (solnArray[0] == 0) {
-//    solnArray.shift();
-//  }
-//  return solnArray;
 }
 
 function recursMultiply(m, n) {
   /* The recursive Karatsuba function call. Assumes neither number-array is
-  empty or is one digit long.
-  First, perform the Karatsuba split. */
+  empty or is one digit long. First, perform the Karatsuba split. */
   var splitLength = Math.pow(2, Math.ceil(Math.log2((Math.max(m.length, n.length)) / 2)));
   // Guarantees that split is at position 2^n from the right.
   var a, b, c, d;
