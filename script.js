@@ -24,7 +24,7 @@ function karatsuba() {
     var num1 = input1.split("").map(Number);
     var num2 = input2.split("").map(Number);
     karatsubaTarget.textContent = multiply(num1, num2).map(String).join("");
-    bigJSTarget.textContent = Big(input1).times(input2).toString();
+    bigJSTarget.textContent = Big(input1).times(input2).toFixed();
     return;
   }
 }
@@ -107,11 +107,20 @@ function arraySubtract(g, h) {
       diffArray.unshift(singleDigitDiff + 10);
     }
   }
+//  var solnArray;
   if (borrow == 1) {
     return arraySubtract(g.slice(0, (g.length - h.length)), [1]).concat(diffArray);
+//    solnArray = arraySubtract(g.slice(0, (g.length - h.length)), [1]).concat(diffArray);
   } else {
     return g.slice(0, (g.length - h.length)).concat(diffArray);
+//    solnArray = g.slice(0, (g.length - h.length)).concat(diffArray);
   }
+  /* This process sometimes yields a number with leading zeroes. Have to get
+  rid of those. */
+//  while (solnArray[0] == 0) {
+//    solnArray.shift();
+//  }
+//  return solnArray;
 }
 
 function recursMultiply(m, n) {
@@ -139,7 +148,12 @@ function recursMultiply(m, n) {
   var ac = multiply(a, c);
   var bd = multiply(b, d);
   var middleTerm = arraySubtract(arraySubtract(multiply(arrayAdd(a, b), arrayAdd(c, d)), ac), bd);
-  // Append (2 * splitLength) zeroes to ac, and splitLength zeroes to middleTerm.
+  // Sometimes middleTerm has some leading zeroes. Let's get rid of them.
+  while (middleTerm[0] == 0) {
+    middleTerm.shift();
+  }
+  /* Append (2 * splitLength) zeroes to ac, and splitLength zeroes to middleTerm,
+  as required by the Karatsuba method. */
   var acZeroes;
   if (ac == []) {
     acZeroes = [];
